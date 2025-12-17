@@ -13,3 +13,21 @@ df['overweight'] = (df['weight'] / ((df['height']/100)**2)> 25).astype(int)
 df['cholesterol'] =(df['cholesterol'] > 1).astype(int)
 df['gluc'] = (df['gluc']> 1).astype(int)
 
+# 4
+def draw_cat_plot():
+    # 5
+    df_cat = pd.melt(
+        df,
+        id_vars=['cardio'],
+        value_vars=['cholesterol', 'gluc', 'smoke', 'alco', 'active', 'overweight']
+    )
+
+
+
+
+
+
+    # 16
+    fig.savefig('heatmap.png')
+    return fig
+
