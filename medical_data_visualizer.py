@@ -24,10 +24,25 @@ def draw_cat_plot():
 
 
 
+    # 6
+    df_cat = (
+        df_cat
+        .groupby(['cardio', 'variable', 'value'])
+        .size()
+        .reset_index(name='total')
+    )
+    
+
+    # 7 # 8
+    fig = sns.catplot(
+        data=df_cat,
+        x='variable',
+        y='total',
+        hue='value',
+        col='cardio',
+        kind='bar'
+    ).fig
+    
 
 
-
-    # 16
-    fig.savefig('heatmap.png')
-    return fig
-
+    
